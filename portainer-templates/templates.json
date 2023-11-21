@@ -4,39 +4,83 @@
       {
         "type": 1,
         "title": "TeCore Odoo 14.0.2",
-        "description": "Open-source business apps versioning by Tecorp S.A.",
+        "description": "Open-source business apps version 14.0.2 tecorp for the Bolivian localization",
         "categories": [
           "project-management"
         ],
         "platform": "linux",
         "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
         "image": "tecorpapps/tcp_odoo:14.0.2",
-        "env": [
-          {
-            "name": "HOST",
-            "label": "PostgreSQL database host",
-            "type": "container"
-          },
-          {
-            "name": "USER",
-            "label": "Database user"
-          },
-          {
-            "name": "PASSWORD",
-            "label": "Database password"
-          }
-        ],
-        "ports": [
-          "8069/tcp"
-        ],
-        "volumes": [
-          {
-            "container": "/var/lib/odoo"
-          },
-          {
-            "container": "/mnt/extra-addons"
-          }
+        "network": "web",
+        "restart_policy": "always",
+        "administrator-only": true,
+        "interactive": true,
+        "env": [       
+        {
+          "name": "WEB_ENVIRONMENT",
+          "label": "Environment",
+          "select": [
+            {
+              "text": "Testing",
+              "value": "tst",
+              "default": true
+            },
+            {
+              "text": "Production",
+              "value": "prd"
+            }
+          ]
+        },
+        {
+          "name": "WEB_INSTANCE_NAME",
+          "label": "Instance Name"          
+        },
+        {
+          "name": "HOST",
+          "label": "PostgreSQL database host",
+          "type": "container"
+        },
+        {
+          "name": "USER",
+          "label": "Database user",
+          "default":"odoo"
+        },
+        {
+          "name": "PASSWORD",
+          "label": "Database password",
+          "default":"odoo"
+        },
+        {
+          "name": "POSTGRES_USER",
+          "label": "Database user",
+          "default": "odoo"
+        },
+        {
+          "name": "POSTGRES_PASSWORD",
+          "label": "Database password",
+          "default": "odoo"
+        },
+        {
+          "name": "WEB_HOST",
+          "label": "Web Name"          
+        },
+        {
+          "name": "WEB_HOST",
+          "label": "Web Name"          
+        }
+      ],
+      "ports": [
+        "8069/tcp",
+        "8072/tcp"
+      ],
+      "volumes": [
+        {
+          "container": "/var/lib/odoo"
+        },
+        {
+          "container": "/mnt/extra-addons"
+        }
         ]
-      }
+        }    
     ]
-  }
+}
