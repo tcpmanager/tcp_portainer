@@ -31,9 +31,11 @@ elif [ "${P_COMMAND}" == "restart" ];then
     docker cp "$PT_DIR"/templates.json "$PT_NAME":/usr/share/nginx/html/templates.json
     docker restart "$PT_NAME"
 elif [ "${P_COMMAND}" == "rebuild" ];then
+    cp -r docker-image "$PT_AREA"   
     cd "$PT_DIR"
     docker rm -f "$PT_NAME"
     docker rmi -f "$PT_IMAGE"
+    
     make
     docker build --rm -t "$PT_IMAGE" "$PT_DIR/."
     docker run --name="$PT_NAME" --network="$PORTAINER_NETWORK" --restart=always -d -p "$PT_PORT:80" "$PT_IMAGE"
