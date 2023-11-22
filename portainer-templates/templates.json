@@ -75,6 +75,68 @@
           "container": "/mnt/extra-addons"
         }
         ]
-        }    
+        } ,
+        {
+          "type": 2,
+          "title": "TeCore Odoo 14.0.2",
+          "description": "Open-source business apps version 14.0.2 tecorp for the Bolivian localization",
+          "categories": [
+            "project-management"
+          ],
+          "platform": "linux",
+          "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
+          "repository": {
+            "url": "https://github.com/tcpmanager/tcp_portainer/tree/main/portainer-templates",
+            "stackfile": "stacks/tecore-odoo14/docker-stack.yml"
+          },
+          "env": [
+            {
+              "name": "WEB_ENVIRONMENT",
+              "label": "Post type",
+              "select": [
+                {
+                  "text": "Testing",
+                  "value": "tst",
+                  "default": true
+                },
+                {
+                  "text": "Production",
+                  "value": "prd"
+                }
+              ]
+            }
+          ]
+        }   ,
+        {
+          "type": 3,
+          "title": "TeCore Odoo 14.0.2",
+          "description": "Open-source business apps version 14.0.2 tecorp for the Bolivian localization",
+          "categories": [
+            "project-management"
+          ],
+          "platform": "linux",
+          "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
+          "repository": {
+            "url": "https://github.com/tcpmanager/tcp_portainer/tree/main/portainer-templates",
+            "stackfile": "stacks/tecore-odoo14/docker-compose.yml"
+          },
+          "env": [
+            {
+              "name": "WEB_ENVIRONMENT",
+              "label": "Post type",
+              "select": [
+                {
+                  "text": "Testing",
+                  "value": "tst",
+                  "default": true
+                },
+                {
+                  "text": "Production",
+                  "value": "prd"
+                }
+              ]
+            }
+          ]
+        }  
     ]
 }
