@@ -6,13 +6,16 @@ set -e
 
 source ../scripts/d-scripts.sh
 
-while getopts n:v:t:p:d:c:i:l: flag
+while getopts n:v:t:p:d:c:i:l:q:r:s: flag
 do
     case "${flag}" in
         n) PORTAINER_NETWORK="${OPTARG}";;
         v) PORTAINER_VOLUME="${OPTARG}";;
         t) PORTAINER_TARGET="${OPTARG}";;
-        p) PORTAINER_PORT="${OPTARG}";;
+        p) PORT_LEGACY_PORT="${OPTARG}";;
+        q) PORT_SSL_PORT="${OPTARG}";;
+        r) PORT_AGENT_PORT="${OPTARG}";;
+        s) PORT_TUNNEL_PORT="${OPTARG}";;
         d) PORTAINER_DIR="${OPTARG}";;        
         c) P_COMMAND="${OPTARG}";;
         i) PORTAINER_IMAGE="${OPTARG}";;
@@ -54,7 +57,10 @@ rm -f "$PORTAINER_AREA/.env"
 cp ./docker-compose.yml "$PORTAINER_AREA"/.
 chmod u+x "$PORTAINER_AREA"/docker-compose.yml
 {
-  echo "PORTAINER_PORT=$PORTAINER_PORT";
+  echo "PORT_AGENT_PORT=$PORT_AGENT_PORT";
+  echo "PORT_LEGACY_PORT=$PORT_LEGACY_PORT";
+  echo "PORT_TUNNEL_PORT=$PORT_TUNNEL_PORT";
+  echo "PORT_SSL_PORT=$PORT_SSL_PORT";
   echo "PORTAINER_VOLUME=$PORTAINER_VOLUME";
   echo "PORTAINER_NETWORK=$PORTAINER_NETWORK";
   echo "PORTAINER_AREA=$PORTAINER_AREA";

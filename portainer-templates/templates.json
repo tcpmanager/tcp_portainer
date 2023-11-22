@@ -15,10 +15,11 @@
         "restart_policy": "always",
         "administrator-only": true,
         "interactive": true,
+        "note": "",
         "env": [       
         {
           "name": "WEB_ENVIRONMENT",
-          "label": "Environment",
+          "label": "Post type",
           "select": [
             {
               "text": "Testing",
@@ -30,15 +31,12 @@
               "value": "prd"
             }
           ]
-        },
-        {
-          "name": "WEB_INSTANCE_NAME",
-          "label": "Instance Name"          
-        },
+        },        
         {
           "name": "HOST",
           "label": "PostgreSQL database host",
-          "type": "container"
+          "type": "container",
+          "default":
         },
         {
           "name": "USER",
@@ -63,11 +61,7 @@
         {
           "name": "WEB_HOST",
           "label": "Web Name"          
-        },
-        {
-          "name": "WEB_HOST",
-          "label": "Web Name"          
-        }
+        }       
       ],
       "ports": [
         "8069/tcp",
