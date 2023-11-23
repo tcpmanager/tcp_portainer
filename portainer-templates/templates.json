@@ -123,8 +123,8 @@
       "platform": "linux",
       "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/odoo.png",
       "repository": {
-        "url": "https://github.com/tcpmanager/tcp_portainer/tree/main/portainer-templates",
-        "stackfile": "stacks/tecore-o14base/docker-compose.yml"
+        "url": "https://github.com/tcpmanager/tcp_portainer/portainer-templates",
+        "stackfile": "stacks/tecore-odoo14/docker-compose.yml"
       },
       "env": [
         {
