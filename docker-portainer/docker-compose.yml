@@ -16,10 +16,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - "${PORTAINER_AREA}/portainer_data:/data"
     ports:
-      - "${PORT_TUNNEL_PORT}:8000"
+      # -"${PORT_TUNNEL_PORT}:8000"
       - "${PORT_LEGACY_PORT}:9000"
-      - "${PORT_AGENT_PORT}:9001"
-      - "${PORT_SSL_PORT}:9443"
+      # - "${PORT_AGENT_PORT}:9001"
+      # - "${PORT_SSL_PORT}:9443"
 
 volumes:
   portainer_data:
