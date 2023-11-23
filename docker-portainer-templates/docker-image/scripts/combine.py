@@ -37,6 +37,7 @@ fileData = {
   'templates': filtered_data
 }
 
+# test to open templates
 # Open the templates.json file, and write results to it
 with open(template_dest_file, 'w') as f:
   json.dump(fileData, f, indent=2, sort_keys=False)

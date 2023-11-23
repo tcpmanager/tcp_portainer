@@ -26,7 +26,12 @@ if [ "${P_COMMAND}" == "start" ];then
 # docker build -t portainer-templates .
 # docker run -d -p "8080:80" portainer-templates
 elif [ "${P_COMMAND}" == "restart" ];then
-    cd "$PT_DIR"
+    rm -r -f "$PT_DIR"/lib
+    cp -r docker-image/sources "$PT_DIR"
+    cp -r docker-image/scripts "$PT_DIR"
+    cp -r docker-image/Makefile "$PT_DIR"
+    cp -r docker-image/sources.csv "$PT_DIR"
+    cd "$PT_DIR"    
     make combine
     docker cp "$PT_DIR"/templates.json "$PT_NAME":/usr/share/nginx/html/templates.json
     docker restart "$PT_NAME"
